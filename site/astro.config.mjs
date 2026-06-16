@@ -3,8 +3,11 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: cambiar por el dominio real al desplegar (canonical / OG / sitemap).
-  site: 'https://loft-bahia.example',
+  // GitHub Pages (project site): se sirve en usuario.github.io/loft-bahia/.
+  // `base` prefija assets/links; sin esto se rompe todo bajo el sub-path.
+  // Si más adelante hay dominio propio, cambiar `site` y borrar `base`.
+  site: 'https://rodriguezreysantiago.github.io',
+  base: '/loft-bahia',
   image: {
     // Imágenes responsive: cada <Image width=...> genera un srcset acotado
     // (no se sirve la foto full-res de 6000px). responsiveStyles=false deja
