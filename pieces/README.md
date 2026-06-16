@@ -5,7 +5,8 @@ Archivos listos para subir / imprimir:
 - `historias/historia-{1..5}.png` — Historias 1080×1920 (IG / WhatsApp)
 - `carrusel/slide-{1..6}.png` — Carrusel 1080×1080 (feed IG)
 - `posts/post-{1..4}.png` — Posts sueltos 1080×1080
-- `flyer/flyer-a4.pdf` — Flyer A4 imprimible
+- `flyer/flyer-a4.pdf` — Flyer A4 imprimible (con QR al sitio)
+- `qr/qr.png` + `qr/qr.svg` — QR a https://loft-bahia.netlify.app (también va embebido en el flyer)
 
 > Son **generadas**. La fuente de cada pieza vive en `site/src/pages/pieces/*.astro`.
 > Para cambiar textos/fotos, editá ahí y regenerá.
@@ -30,3 +31,12 @@ Archivos listos para subir / imprimir:
    ```
 
 `capturar-piezas.mjs` recorta cada cuadro de la hoja apilada; `capturar-pdf.mjs` imprime a PDF A4.
+
+## QR
+
+El flyer genera el QR en el build a partir de `site.ts` (`site.url`), así que **se actualiza solo** si cambia la URL. Para regenerar el QR suelto (PNG + SVG) y verificar el decode:
+
+```
+cd site && node scripts/qr.mjs            # usa https://loft-bahia.netlify.app
+cd site && node scripts/qr.mjs <url> <outDir>   # otra URL / destino
+```

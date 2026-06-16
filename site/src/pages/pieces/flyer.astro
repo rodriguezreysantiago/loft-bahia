@@ -2,11 +2,19 @@
 // Generador del Flyer A4 (794x1123 @96dpi). Se exporta con Page.printToPDF.
 import Base from '../../layouts/Base.astro';
 import { Image } from 'astro:assets';
-import { contact } from '../../data/site';
+import QRCode from 'qrcode';
+import { contact, site } from '../../data/site';
 import livingWindow from '../../assets/living-window.jpg';
 import catStairs2 from '../../assets/cat-stairs2.jpg';
 import kitchen from '../../assets/kitchen.jpg';
 import bedroom from '../../assets/bedroom.jpg';
+
+// QR (SVG vectorial) generado en build desde la URL real del sitio (site.ts).
+const qrSvg = await QRCode.toString(site.url, {
+  type: 'svg',
+  margin: 2,
+  color: { dark: '#211E18', light: '#FBF6EC' },
+});
 ---
 
 <Base title="Loft Bahía · Flyer A4">
@@ -34,6 +42,14 @@ import bedroom from '../../assets/bedroom.jpg';
         <div class="it"><span class="c">✓</span> Lavadero común</div>
         <div class="it"><span class="c">✓</span> Cocina equipada + baño nuevo</div>
         <div class="it"><span class="c">✓</span> Patio común con bicis · Ideal estudiantes</div>
+      </div>
+
+      <div class="qr-row">
+        <div class="qr" set:html={qrSvg}></div>
+        <div class="qr-cta">
+          <div class="qr-h">📲 Escaneá y entrá al aviso</div>
+          <div class="qr-sub">Fotos, ubicación y contacto directo desde tu celular.</div>
+        </div>
       </div>
 
       <div class="strip">
@@ -79,6 +95,12 @@ import bedroom from '../../assets/bedroom.jpg';
   .amen .it:nth-child(even) .c { background: var(--terra); }
   .strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: auto; }
   .strip :global(img) { width: 100%; height: 130px; object-fit: cover; border: 2px solid var(--ink); border-radius: 10px; display: block; }
+
+  .qr-row { display: flex; align-items: center; gap: 22px; margin-bottom: 20px; background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; padding: 16px 20px; }
+  .qr { width: 132px; height: 132px; flex: none; background: #FBF6EC; border-radius: 8px; }
+  .qr :global(svg) { width: 100%; height: 100%; display: block; }
+  .qr-cta .qr-h { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 25px; color: var(--ink); line-height: 1.05; }
+  .qr-cta .qr-sub { font-size: 15px; color: var(--ink-soft); margin-top: 8px; line-height: 1.45; }
 
   .fly-foot { flex: none; background: var(--ink); color: var(--cream); padding: 22px 30px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .fly-foot .ct { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 20px; color: #fff; }
