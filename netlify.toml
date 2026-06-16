@@ -1,0 +1,8 @@
+# Config de build para Netlify. La app Astro vive en site/.
+[build]
+  base = "site"            # entrar a site/ antes de buildear
+  command = "npm run build"
+  publish = "dist"          # site/dist (relativo a base)
+
+[build.environment]
+  NODE_VERSION = "22"

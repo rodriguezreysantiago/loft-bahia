@@ -4,11 +4,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // GitHub Pages (project site): se sirve en usuario.github.io/loft-bahia/.
-  // `base` prefija assets/links; sin esto se rompe todo bajo el sub-path.
-  // Si más adelante hay dominio propio, cambiar `site` y borrar `base`.
-  site: 'https://rodriguezreysantiago.github.io',
-  base: '/loft-bahia',
+  // Netlify: sitio estático servido en la RAÍZ (sin sub-path), URL limpia.
+  // Si el subdominio elegido difiere, actualizar acá y en site.ts/robots.txt.
+  site: 'https://loftbahia.netlify.app',
   image: {
     // Imágenes responsive: cada <Image width=...> genera un srcset acotado
     // (no se sirve la foto full-res de 6000px). responsiveStyles=false deja

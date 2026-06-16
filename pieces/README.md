@@ -22,7 +22,7 @@ Archivos listos para subir / imprimir:
    ```
 3. Capturar (PNG por recorte / PDF por print), desde la raíz del repo:
    ```
-   $u = "http://localhost:4321/loft-bahia/pieces"
+   $u = "http://localhost:4321/pieces"
    node scripts/capturar-piezas.mjs "$u/historias" 5 1080 1920 pieces/historias historia
    node scripts/capturar-piezas.mjs "$u/carrusel"  6 1080 1080 pieces/carrusel slide
    node scripts/capturar-piezas.mjs "$u/posts"     4 1080 1080 pieces/posts    post
