@@ -1,8 +1,11 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { waLink, telLink, waMessages } from '../data/site';
 import livingWindow from '../assets/living-window.jpg';
 import catStairs from '../assets/cat-stairs.jpg';
+
+const livingFull = (await getImage({ src: livingWindow, width: 1600, format: 'webp' })).src;
+const catFull = (await getImage({ src: catStairs, width: 1600, format: 'webp' })).src;
 ---
 
 <header class="hero">
@@ -35,6 +38,9 @@ import catStairs from '../assets/cat-stairs.jpg';
         format="webp"
         loading="eager"
         fetchpriority="high"
+        data-lightbox
+        data-full={livingFull}
+        data-caption="Interior del loft con ventanal"
       />
       <Image
         class="inset hard-petrol"
@@ -43,6 +49,9 @@ import catStairs from '../assets/cat-stairs.jpg';
         width={320}
         sizes="(max-width:880px) 45vw, 22vw"
         format="webp"
+        data-lightbox
+        data-full={catFull}
+        data-caption="Escalera de hierro al entrepiso"
       />
     </div>
   </div>

@@ -24,6 +24,9 @@
 
 *{ box-sizing:border-box; }
 
+/* Imágenes ampliables (lightbox): indican que se puede clickear */
+[data-lightbox]{ cursor:zoom-in; }
+
 body{
   margin:0;
   font-family:"DM Sans", system-ui, sans-serif;

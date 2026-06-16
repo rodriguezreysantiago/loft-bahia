@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import loftStairs from '../assets/loft-stairs.jpg';
 import kitchenWide from '../assets/kitchen-wide.jpg';
 import courtyardBikes from '../assets/courtyard-bikes.jpg';
@@ -29,6 +29,11 @@ const cards = [
 ];
 
 const sizes = '(max-width:880px) 92vw, 31vw';
+
+// Versión grande de cada foto para el visor ampliado.
+const withFull = await Promise.all(
+  cards.map(async (c) => ({ ...c, full: (await getImage({ src: c.src, width: 1600, format: 'webp' })).src }))
+);
 ---
 
 <section id="features" style="padding-top:18px;">
@@ -40,10 +45,10 @@ const sizes = '(max-width:880px) 92vw, 31vw';
       </div>
     </div>
     <div class="feat">
-      {cards.map((c) => (
+      {withFull.map((c) => (
         <article class="card">
           <div class="ph">
-            <Image src={c.src} alt={c.alt} width={440} sizes={sizes} format="webp" />
+            <Image src={c.src} alt={c.alt} width={440} sizes={sizes} format="webp" data-lightbox data-full={c.full} data-caption={c.title} />
           </div>
           <div class="bd">
             <div class="num">{c.num}</div>

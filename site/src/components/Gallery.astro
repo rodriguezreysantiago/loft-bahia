@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { waLink } from '../data/site';
 import loftLiving from '../assets/loft-living.jpg';
 import catStairs2 from '../assets/cat-stairs2.jpg';
@@ -25,6 +25,11 @@ const items = [
 
 const sizesBig = '(max-width:880px) 92vw, 47vw';
 const sizesCell = '(max-width:880px) 46vw, 24vw';
+
+// Versión grande de cada foto para el visor ampliado (lightbox).
+const withFull = await Promise.all(
+  items.map(async (it) => ({ ...it, full: (await getImage({ src: it.src, width: 1600, format: 'webp' })).src }))
+);
 ---
 
 <section id="galeria" style="padding-top:18px;">
@@ -37,8 +42,8 @@ const sizesCell = '(max-width:880px) 46vw, 24vw';
       <a class="btn btn-petrol" href={waLink()} target="_blank" rel="noopener">Coordinar visita</a>
     </div>
     <div class="gal">
-      {items.map((it) => (
-        <figure class={it.cls}>
+      {withFull.map((it) => (
+        <figure class={it.cls} data-lightbox data-full={it.full} data-caption={it.cap}>
           <Image
             src={it.src}
             alt={it.alt}
