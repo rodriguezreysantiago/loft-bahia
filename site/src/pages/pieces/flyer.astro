@@ -1,0 +1,92 @@
+---
+// Generador del Flyer A4 (794x1123 @96dpi). Se exporta con Page.printToPDF.
+import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import { contact } from '../../data/site';
+import livingWindow from '../../assets/living-window.jpg';
+import catStairs2 from '../../assets/cat-stairs2.jpg';
+import kitchen from '../../assets/kitchen.jpg';
+import bedroom from '../../assets/bedroom.jpg';
+---
+
+<Base title="Loft Bahía · Flyer A4">
+  <div class="sheet">
+    <div class="fly-hero">
+      <Image src={livingWindow} alt="" width={1200} format="webp" loading="eager" />
+      <div class="shade"></div>
+      <div class="top">
+        <div class="brand"><span class="mk">⌂</span> Loft Bahía</div>
+        <span class="tag">En alquiler</span>
+      </div>
+      <div class="ht">
+        <h1>Monoambiente tipo loft con entrepiso</h1>
+        <div class="loc">📍 Bahía Blanca · a pasos de la UTN</div>
+      </div>
+    </div>
+
+    <div class="fly-body">
+      <p class="fly-lead">Amoblado y listo para entrar. Un loft luminoso con entrepiso, ideal para estudiantes que buscan su propio espacio cerca de la facultad.</p>
+
+      <div class="amen">
+        <div class="it"><span class="c">✓</span> Amoblado — listo para entrar</div>
+        <div class="it"><span class="c">✓</span> Cerca de la UTN</div>
+        <div class="it"><span class="c">✓</span> A 10 cuadras de la UNS</div>
+        <div class="it"><span class="c">✓</span> Lavadero común</div>
+        <div class="it"><span class="c">✓</span> Cocina equipada + baño nuevo</div>
+        <div class="it"><span class="c">✓</span> Patio común con bicis · Ideal estudiantes</div>
+      </div>
+
+      <div class="strip">
+        <Image src={catStairs2} alt="" width={400} format="webp" loading="eager" />
+        <Image src={kitchen} alt="" width={400} format="webp" loading="eager" />
+        <Image src={bedroom} alt="" width={400} format="webp" loading="eager" />
+      </div>
+    </div>
+
+    <div class="fly-foot">
+      <div>
+        <div class="ct">📲 Escribinos al WhatsApp</div>
+        <div class="tags">#alquiler #bahiablanca #UTN #UNS #loft #estudiantes</div>
+      </div>
+      <div class="ph"><span class="wa">💬 {contact.phoneDisplay}</span></div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .sheet {
+    width: 794px; height: 1123px; margin: 0 auto; background-color: var(--cream);
+    position: relative; overflow: hidden; font-family: "DM Sans", sans-serif;
+    display: flex; flex-direction: column;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .fly-hero { position: relative; height: 368px; flex: none; overflow: hidden; border-bottom: 3px solid var(--ink); }
+  .fly-hero :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fly-hero .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,17,13,.55), rgba(20,17,13,0) 45%, rgba(20,17,13,.7)); }
+  .fly-hero .top { position: absolute; top: 26px; left: 30px; right: 30px; display: flex; align-items: center; justify-content: space-between; }
+  .fly-hero .brand { display: flex; align-items: center; gap: 12px; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 26px; color: #fff; }
+  .fly-hero .mk { width: 46px; height: 46px; border: 2.5px solid #fff; border-radius: 12px; background: var(--petrol); display: grid; place-items: center; color: #fff; font-size: 24px; transform: rotate(-6deg); }
+  .fly-hero .tag { background: var(--terra); color: #fff; font-weight: 700; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; padding: 8px 16px; border-radius: 999px; }
+  .fly-hero .ht { position: absolute; left: 30px; bottom: 26px; right: 30px; }
+  .fly-hero h1 { font-family: "Bricolage Grotesque"; font-weight: 800; letter-spacing: -.02em; line-height: .96; color: #fff; font-size: 62px; margin: 0; }
+  .fly-hero .loc { color: #f2e9d8; font-weight: 600; font-size: 20px; margin-top: 8px; }
+
+  .fly-body { flex: 1; padding: 26px 30px; display: flex; flex-direction: column; }
+  .fly-lead { font-size: 18px; line-height: 1.45; color: var(--ink-soft); margin: 0 0 18px; max-width: 60ch; }
+  .amen { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; margin-bottom: 20px; }
+  .amen .it { display: flex; align-items: center; gap: 12px; font-size: 17px; font-weight: 600; color: var(--ink); }
+  .amen .it .c { width: 30px; height: 30px; flex: none; border-radius: 8px; background: var(--petrol); color: #fff; display: grid; place-items: center; font-size: 16px; border: 2px solid var(--ink); }
+  .amen .it:nth-child(even) .c { background: var(--terra); }
+  .strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: auto; }
+  .strip :global(img) { width: 100%; height: 130px; object-fit: cover; border: 2px solid var(--ink); border-radius: 10px; display: block; }
+
+  .fly-foot { flex: none; background: var(--ink); color: var(--cream); padding: 22px 30px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .fly-foot .ct { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 20px; color: #fff; }
+  .fly-foot .wa { display: inline-flex; align-items: center; gap: 10px; background: var(--wa); color: #fff; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 26px; padding: 12px 24px; border-radius: 999px; border: 2px solid var(--cream); }
+  .fly-foot .tags { font-size: 11px; color: #9a907d; max-width: 22ch; margin-top: 4px; }
+
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    .sheet { margin: 0; width: 100%; height: 100vh; }
+  }
+</style>
