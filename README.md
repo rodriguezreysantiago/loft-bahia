@@ -1,7 +1,7 @@
 # Handoff: Loft Bahía — Sitio de alquiler + kit de redes
 
 ## Estado actual (implementado)
-- **Landing en producción**: sitio Astro en [`site/`](site/), desplegado a **Netlify** → https://loftbahia.netlify.app (deploy automático en cada push a `main`; config en [`netlify.toml`](netlify.toml)).
+- **Landing en producción**: sitio Astro en [`site/`](site/), desplegado a **Netlify** → https://loft-bahia.netlify.app (deploy automático en cada push a `main`; config en [`netlify.toml`](netlify.toml)).
 - **Optimizado**: imágenes WebP responsive (`astro:assets`), favicon propio, Open Graph + `sitemap.xml` + `robots.txt`.
 - **Kit de redes generado**: 16 piezas en [`pieces/`](pieces/) (5 historias, 6 carrusel, 4 posts, 1 flyer PDF). Las fuentes viven en `site/src/pages/pieces/*.astro`; cómo regenerarlas en [`pieces/README.md`](pieces/README.md).
 - **Dev local**: `cd site && npm install && npm run dev`.

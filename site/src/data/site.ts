@@ -10,7 +10,7 @@ export const site = {
     'Monoambiente tipo loft con entrepiso, amoblado y a pasos de la UTN. Ideal para estudiantes en Bahía Blanca (a 10 cuadras de la UNS).',
   // URL pública (Netlify). Si el subdominio difiere, cambiar acá y en
   // astro.config (site) y public/robots.txt.
-  url: 'https://loftbahia.netlify.app',
+  url: 'https://loft-bahia.netlify.app',
 } as const;
 
 export const contact = {

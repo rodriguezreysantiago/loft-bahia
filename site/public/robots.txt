@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://loftbahia.netlify.app/sitemap-index.xml
+Sitemap: https://loft-bahia.netlify.app/sitemap-index.xml

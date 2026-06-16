@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // Netlify: sitio estático servido en la RAÍZ (sin sub-path), URL limpia.
   // Si el subdominio elegido difiere, actualizar acá y en site.ts/robots.txt.
-  site: 'https://loftbahia.netlify.app',
+  site: 'https://loft-bahia.netlify.app',
   image: {
     // Imágenes responsive: cada <Image width=...> genera un srcset acotado
     // (no se sirve la foto full-res de 6000px). responsiveStyles=false deja
