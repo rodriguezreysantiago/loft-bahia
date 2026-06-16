@@ -15,5 +15,5 @@ export default defineConfig({
     responsiveStyles: false,
   },
   // Sitemap solo de las páginas públicas reales (excluye los generadores /pieces/).
-  integrations: [sitemap({ filter: (page) => !page.includes('/pieces/') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/pieces/') && !page.includes('/descargas') })],
 });

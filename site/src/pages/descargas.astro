@@ -1,0 +1,108 @@
+---
+// Página de descargas (uso interno, no linkeada desde la landing ni en el sitemap).
+// Sirve las piezas desde public/descargas para bajarlas con un toque desde el celu.
+import Base from '../layouts/Base.astro';
+
+const B = '/descargas';
+const grupos = [
+  {
+    titulo: 'Historias', dim: '1080×1920', ratio: '9 / 16',
+    sub: 'Para historias de Instagram y estados de WhatsApp.',
+    items: Array.from({ length: 5 }, (_, i) => `${B}/historias/historia-${i + 1}.png`),
+  },
+  {
+    titulo: 'Carrusel', dim: '1080×1080', ratio: '1 / 1',
+    sub: 'Subí los 6 EN ORDEN como un solo post deslizable.',
+    items: Array.from({ length: 6 }, (_, i) => `${B}/carrusel/slide-${i + 1}.png`),
+  },
+  {
+    titulo: 'Posts', dim: '1080×1080', ratio: '1 / 1',
+    sub: 'Posts sueltos del feed (individuales o en otro carrusel).',
+    items: Array.from({ length: 4 }, (_, i) => `${B}/posts/post-${i + 1}.png`),
+  },
+];
+---
+
+<Base title="Loft Bahía · Descargas">
+  <main class="wrap dl">
+    <header class="dl-head">
+      <h1>Piezas para redes</h1>
+      <p class="lead">Tocá cualquier pieza para descargarla, o bajá todo junto en un ZIP. Después subís las imágenes a Instagram / WhatsApp.</p>
+      <a class="btn btn-petrol hard" href={`${B}/loft-bahia-redes.zip`} download>⬇ Descargar todo (ZIP · 15 MB)</a>
+    </header>
+
+    {grupos.map((g) => (
+      <section class="dl-sec">
+        <div class="dl-sec-head">
+          <h2>{g.titulo} <span class="dim">{g.dim}</span></h2>
+          <p>{g.sub}</p>
+        </div>
+        <div class="dl-grid">
+          {g.items.map((src, i) => (
+            <a class="dl-card" href={src} download style={`aspect-ratio:${g.ratio}`}>
+              <img src={src} loading="lazy" decoding="async" alt={`${g.titulo} ${i + 1}`} />
+              <span class="dl-tag">⬇ {i + 1}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="dl-sec">
+      <div class="dl-sec-head">
+        <h2>Flyer <span class="dim">A4 · PDF</span></h2>
+        <p>Para imprimir y pegar (carteleras de UTN/UNS, kioscos). Trae el QR al sitio.</p>
+      </div>
+      <a class="btn btn-call" href={`${B}/flyer/flyer-a4.pdf`} download>📄 Descargar flyer A4 (PDF)</a>
+    </section>
+
+    <section class="dl-sec">
+      <div class="dl-sec-head">
+        <h2>QR del sitio</h2>
+        <p>Para sumar a cualquier pieza o cartel impreso.</p>
+      </div>
+      <div class="qr-row">
+        <a class="dl-card qr" href={`${B}/qr/qr.png`} download style="aspect-ratio:1/1"><img src={`${B}/qr/qr.png`} alt="QR del sitio" loading="lazy" /></a>
+        <div class="qr-btns">
+          <a class="btn btn-call" href={`${B}/qr/qr.png`} download>⬇ PNG</a>
+          <a class="btn btn-call" href={`${B}/qr/qr.svg`} download>⬇ SVG (vectorial)</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="dl-foot">Loft Bahía · página de uso interno</footer>
+  </main>
+</Base>
+
+<style>
+  .dl { padding-top: 40px; padding-bottom: 60px; }
+  .dl-head h1 { font-size: clamp(2rem, 5vw, 3rem); }
+  .dl-head .lead { color: var(--ink-soft); font-size: 1.1rem; line-height: 1.5; margin: 14px 0 22px; max-width: 58ch; }
+
+  .dl-sec { padding: 26px 0; border-top: 1.5px solid rgba(33, 30, 24, 0.12); }
+  .dl-sec-head h2 { font-size: 1.6rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .dl-sec-head .dim { font-family: "DM Sans", sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.04em; color: var(--petrol); background: var(--cream-2); border-radius: 999px; padding: 0.25em 0.7em; }
+  .dl-sec-head p { color: var(--ink-soft); font-size: 0.96rem; margin: 8px 0 18px; }
+
+  .dl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .dl-card {
+    position: relative; display: block; overflow: hidden;
+    border: 2px solid var(--ink); border-radius: 14px; background: var(--cream-2);
+    text-decoration: none; transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .dl-card:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 var(--ink); }
+  .dl-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .dl-tag {
+    position: absolute; right: 8px; bottom: 8px;
+    background: var(--ink); color: var(--cream);
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 0.85rem;
+    padding: 0.25em 0.6em; border-radius: 999px; border: 1.5px solid var(--cream);
+  }
+
+  .qr-row { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .qr-row .dl-card.qr { width: 150px; flex: none; background: var(--paper); }
+  .qr-btns { display: flex; flex-direction: column; gap: 10px; }
+  .dl-sec .btn { align-self: flex-start; }
+
+  .dl-foot { margin-top: 30px; text-align: center; color: var(--ink-soft); font-size: 0.85rem; }
+</style>
