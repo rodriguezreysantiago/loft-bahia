@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loft Bahía · Kit completo</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+  .wrap{ max-width:1100px; margin:0 auto; padding:0 22px; }
+  header.h{ padding:64px 0 34px; }
+  .h .tag-pill{ font-weight:700; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; background:var(--terra); color:#fff; padding:.5em .8em; border-radius:999px; }
+  .h h1{ font-size:clamp(2.6rem,6vw,4.4rem); margin:18px 0 0; }
+  .h p{ font-size:1.18rem; color:var(--ink-soft); margin:16px 0 0; max-width:46ch; }
+  .h .brand{ display:flex; align-items:center; gap:12px; font-family:"Bricolage Grotesque"; font-weight:800; font-size:1.2rem; margin-bottom:26px; }
+  .h .mk{ width:30px; height:30px; border:2px solid var(--ink); border-radius:8px; background:var(--petrol); display:grid; place-items:center; color:#fff; transform:rotate(-6deg); }
+
+  .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding-bottom:30px; }
+  @media(max-width:760px){ .grid{ grid-template-columns:1fr; } }
+  .tile{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink); background:var(--paper); border:2px solid var(--ink); border-radius:20px; overflow:hidden; transition:transform .14s ease, box-shadow .14s ease; }
+  .tile:hover{ transform:translate(-3px,-3px); box-shadow:7px 7px 0 var(--ink); }
+  .tile .ph{ aspect-ratio:16/9; overflow:hidden; border-bottom:2px solid var(--ink); position:relative; }
+  .tile .ph img{ width:100%; height:100%; object-fit:cover; }
+  .tile .ph .fmt{ position:absolute; top:12px; right:12px; background:var(--paper); border:1.5px solid var(--ink); border-radius:999px; padding:.3em .7em; font-size:.74rem; font-weight:700; }
+  .tile .bd{ padding:22px 22px 24px; }
+  .tile .k{ font-family:"Bricolage Grotesque"; font-weight:800; color:var(--terra); font-size:.85rem; letter-spacing:.05em; }
+  .tile h3{ font-size:1.45rem; margin:6px 0 8px; }
+  .tile p{ margin:0; color:var(--ink-soft); font-size:.96rem; line-height:1.45; }
+  .tile.feat{ grid-column:span 2; flex-direction:row; }
+  .tile.feat .ph{ aspect-ratio:auto; width:46%; border-bottom:none; border-right:2px solid var(--ink); }
+  .tile.feat .bd{ align-self:center; }
+  @media(max-width:760px){ .tile.feat{ grid-column:span 1; flex-direction:column; } .tile.feat .ph{ width:100%; aspect-ratio:16/9; border-right:none; border-bottom:2px solid var(--ink); } }
+
+  .note{ background:var(--ink); color:var(--cream); border-radius:18px; padding:24px 26px; display:flex; gap:18px; align-items:center; margin-bottom:50px; flex-wrap:wrap; }
+  .note .ic{ font-size:1.6rem; }
+  .note b{ color:#fff; }
+  .note p{ margin:0; color:#cabfa6; font-size:.96rem; }
+  .note a{ color:#fff; font-weight:700; }
+  footer{ padding:0 0 50px; text-align:center; color:var(--ink-soft); font-size:.85rem; }
+</style>
+</head>
+<body>
+<header class="h">
+  <div class="wrap">
+    <div class="brand"><span class="mk">⌂</span> Loft Bahía</div>
+    <span class="tag-pill">Kit completo · Bahía Blanca</span>
+    <h1>Todo para alquilar tu monoambiente.</h1>
+    <p>Página web + piezas para redes, listas para usar. Hacé clic en cada una para abrirla.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+
+    <a class="tile feat" href="Loft Bahía — Landing.html">
+      <div class="ph"><img src="assets/loft-living.jpg" alt=""><span class="fmt">Web</span></div>
+      <div class="bd">
+        <div class="k">01 · PÁGINA WEB</div>
+        <h3>Landing del depto</h3>
+        <p>Página completa y responsive: galería, características, ubicación y botones de WhatsApp. El link principal para compartir.</p>
+      </div>
+    </a>
+
+    <a class="tile" href="Loft Bahía — Historias.html">
+      <div class="ph"><img src="assets/cat-stairs.jpg" alt=""><span class="fmt">9:16</span></div>
+      <div class="bd">
+        <div class="k">02 · INSTAGRAM</div>
+        <h3>Historias</h3>
+        <p>5 cuadros verticales 1080×1920 para subir como stories.</p>
+      </div>
+    </a>
+
+    <a class="tile" href="Loft Bahía — Carrusel.html">
+      <div class="ph"><img src="assets/bedroom.jpg" alt=""><span class="fmt">1:1</span></div>
+      <div class="bd">
+        <div class="k">03 · INSTAGRAM</div>
+        <h3>Carrusel</h3>
+        <p>6 slides cuadrados con las mejores fotos para un posteo carrusel.</p>
+      </div>
+    </a>
+
+    <a class="tile" href="Loft Bahía — Posts.html">
+      <div class="ph"><img src="assets/living-window.jpg" alt=""><span class="fmt">1:1</span></div>
+      <div class="bd">
+        <div class="k">04 · FEED</div>
+        <h3>Posts cuadrados</h3>
+        <p>4 piezas 1080×1080 para publicar sueltas en el feed.</p>
+      </div>
+    </a>
+
+    <a class="tile" href="Loft Bahía — Flyer.html">
+      <div class="ph"><img src="assets/kitchen.jpg" alt=""><span class="fmt">A4</span></div>
+      <div class="bd">
+        <div class="k">05 · IMPRIMIBLE</div>
+        <h3>Flyer / aviso</h3>
+        <p>Hoja A4 lista para imprimir o guardar en PDF y pegar en la facu.</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="note">
+    <span class="ic">📲</span>
+    <p style="flex:1;min-width:220px;"><b>Contacto en todas las piezas:</b> WhatsApp / Llamar al <b>291 526-7900</b>. Para descargar las historias, el carrusel y los posts, abrí cada uno y hacé una captura de pantalla de cada cuadro.</p>
+    <a class="btn btn-wa" href="https://wa.me/5492915267900" target="_blank" rel="noopener" style="white-space:nowrap;">Abrir WhatsApp</a>
+  </div>
+</div>
+
+<footer>Loft Bahía · Monoambiente tipo loft con entrepiso · Bahía Blanca</footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+---
+const amenities = [
+  'Amoblado — listo para entrar',
+  'Cerca de la UTN',
+  'A 10 cuadras de la UNS',
+  'Lavadero común',
+  'Cocina equipada',
+  'Baño nuevo',
+  'Patio común con bicis',
+  'Ideal estudiantes',
+];
+---
+
+<section style="padding-bottom:36px;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Lo que incluye</span>
+        <h2>Todo resuelto para mudarte ya</h2>
+      </div>
+    </div>
+    <div class="amen">
+      {amenities.map((label, i) => (
+        <span class={`chip${i % 2 === 1 ? ' terra' : ''}`}><span class="dot"></span>{label}</span>
+      ))}
+    </div>
+  </div>
+</section>

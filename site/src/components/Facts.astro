@@ -1,0 +1,17 @@
+---
+const facts = [
+  { b: '1', span: 'Monoambiente tipo loft' },
+  { b: '2', span: 'Niveles con entrepiso' },
+  { b: '✓', span: 'Amoblado y equipado' },
+  { b: 'UTN', span: 'A pasos de la facultad' },
+  { b: '10', span: 'Cuadras de la UNS' },
+];
+---
+
+<div class="facts">
+  <div class="wrap">
+    {facts.map((f) => (
+      <div class="fact"><b>{f.b}</b><span>{f.span}</span></div>
+    ))}
+  </div>
+</div>

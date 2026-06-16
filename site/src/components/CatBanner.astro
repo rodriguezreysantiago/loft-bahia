@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import catWardrobe from '../assets/cat-wardrobe.jpg';
+---
+
+<section style="padding-top:18px;">
+  <div class="wrap">
+    <div class="cat">
+      <Image
+        src={catWardrobe}
+        alt="El gato del depto asomado en un mueble"
+        width={560}
+        sizes="(max-width:820px) 92vw, 40vw"
+        format="webp"
+      />
+      <div class="bd">
+        <span class="eyebrow" style="color:var(--terra);">Bonus</span>
+        <h2>Viene con buena compañía</h2>
+        <p>
+          El gato de la casa es parte del encanto del lugar. Un detalle más de un
+          depto con historia, luz y mucha personalidad.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

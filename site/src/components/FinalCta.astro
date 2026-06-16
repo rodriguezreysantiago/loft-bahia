@@ -1,0 +1,22 @@
+---
+import { waLink, telLink, waMessages, contact } from '../data/site';
+---
+
+<section id="contacto" class="final">
+  <div class="wrap">
+    <div class="final-card">
+      <div class="ck checker" style="--c1:#3a3326;--c2:#211e18;--sz:34px;"></div>
+      <div class="inner">
+        <h2>¿Lo querés ver?</h2>
+        <p>Escribinos y coordinamos una visita. Respondemos rápido por WhatsApp.</p>
+        <div class="cta-row">
+          <a class="btn btn-wa" href={waLink(waMessages.visita)} target="_blank" rel="noopener">
+            💬 WhatsApp · {contact.phoneDisplay}
+          </a>
+          <a class="btn btn-call" href={telLink}>✆ Llamar · {contact.phoneDisplay}</a>
+        </div>
+        <div class="phone">📲 {contact.phoneDisplay}</div>
+      </div>
+    </div>
+  </div>
+</section>

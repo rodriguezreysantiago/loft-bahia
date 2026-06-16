@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import loftStairs from '../assets/loft-stairs.jpg';
+import kitchenWide from '../assets/kitchen-wide.jpg';
+import courtyardBikes from '../assets/courtyard-bikes.jpg';
+
+const cards = [
+  {
+    src: loftStairs,
+    alt: 'Entrepiso con estructura de hierro',
+    num: '01',
+    title: 'Entrepiso tipo loft',
+    body: 'Doble altura con escalera de hierro y madera. Abajo vivís y cocinás; arriba dormís. Más metros de los que parece.',
+  },
+  {
+    src: kitchenWide,
+    alt: 'Cocina equipada con horno y mesada',
+    num: '02',
+    title: 'Cocina equipada',
+    body: 'Mesada de granito, horno y anafe, alacenas y barra desayunador con banquetas. Amoblada y lista para usar.',
+  },
+  {
+    src: courtyardBikes,
+    alt: 'Patio común con bicicletas',
+    num: '03',
+    title: 'Patio común + bicis',
+    body: 'Espacio compartido con lugar para bicicletas y lavadero común. Pisos damero originales que le dan toda la onda.',
+  },
+];
+
+const sizes = '(max-width:880px) 92vw, 31vw';
+---
+
+<section id="features" style="padding-top:18px;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Por dentro</span>
+        <h2>Un loft con carácter</h2>
+      </div>
+    </div>
+    <div class="feat">
+      {cards.map((c) => (
+        <article class="card">
+          <div class="ph">
+            <Image src={c.src} alt={c.alt} width={440} sizes={sizes} format="webp" />
+          </div>
+          <div class="bd">
+            <div class="num">{c.num}</div>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

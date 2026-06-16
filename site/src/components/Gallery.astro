@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import { waLink } from '../data/site';
+import loftLiving from '../assets/loft-living.jpg';
+import catStairs2 from '../assets/cat-stairs2.jpg';
+import kitchen from '../assets/kitchen.jpg';
+import bath from '../assets/bath.jpg';
+import bedroom from '../assets/bedroom.jpg';
+import bar from '../assets/bar.jpg';
+import hallwayCat from '../assets/hallway-cat.jpg';
+import courtyardSky from '../assets/courtyard-sky.jpg';
+import facadeDoors from '../assets/facade-doors.jpg';
+
+const items = [
+  { src: loftLiving,   cls: 'big',  alt: 'Living con cocina integrada y ventanal', cap: 'Living + cocina' },
+  { src: catStairs2,   cls: 'tall', alt: 'Escalera de hierro al entrepiso',         cap: 'Escalera al entrepiso' },
+  { src: kitchen,      cls: '',     alt: 'Cocina con mesada de granito',            cap: 'Cocina' },
+  { src: bath,         cls: '',     alt: 'Baño nuevo',                              cap: 'Baño nuevo' },
+  { src: bedroom,      cls: 'wide', alt: 'Entrepiso con cama y ventana en arco',    cap: 'Entrepiso / dormitorio' },
+  { src: bar,          cls: '',     alt: 'Barra desayunador con banquetas',         cap: 'Desayunador' },
+  { src: hallwayCat,   cls: '',     alt: 'Pasillo con piso damero',                 cap: 'Pasillo damero' },
+  { src: courtyardSky, cls: 'wide', alt: 'Patio común con vista a la ciudad',       cap: 'Patio común' },
+  { src: facadeDoors,  cls: '',     alt: 'Puertas azules características',           cap: 'Puertas petróleo' },
+];
+
+const sizesBig = '(max-width:880px) 92vw, 47vw';
+const sizesCell = '(max-width:880px) 46vw, 24vw';
+---
+
+<section id="galeria" style="padding-top:18px;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Recorré el lugar</span>
+        <h2>Galería</h2>
+      </div>
+      <a class="btn btn-petrol" href={waLink()} target="_blank" rel="noopener">Coordinar visita</a>
+    </div>
+    <div class="gal">
+      {items.map((it) => (
+        <figure class={it.cls}>
+          <Image
+            src={it.src}
+            alt={it.alt}
+            width={it.cls === 'big' || it.cls === 'wide' ? 600 : 340}
+            sizes={it.cls === 'big' || it.cls === 'wide' ? sizesBig : sizesCell}
+            format="webp"
+          />
+          <figcaption>{it.cap}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

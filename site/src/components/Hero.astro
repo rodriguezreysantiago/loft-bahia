@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import { waLink, telLink, waMessages } from '../data/site';
+import livingWindow from '../assets/living-window.jpg';
+import catStairs from '../assets/cat-stairs.jpg';
+---
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="tag-row">
+        <span class="tag-pill">En alquiler</span>
+        <span class="tag-loc">Bahía Blanca · Centro</span>
+      </div>
+      <h1>Tu <span class="hl">monoambiente loft</span> con entrepiso, listo para entrar.</h1>
+      <p class="lead">
+        Amoblado, luminoso y a pasos de la facultad. Ideal para estudiantes que
+        quieren su propio espacio sin vueltas.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-wa hard" href={waLink(waMessages.info)} target="_blank" rel="noopener">
+          💬 Escribir por WhatsApp
+        </a>
+        <a class="btn btn-call" href={telLink}>✆ Llamar</a>
+      </div>
+    </div>
+    <div class="collage">
+      <span class="sticker"><small>Tipo loft</small>Con entrepiso ✦</span>
+      <Image
+        class="main"
+        src={livingWindow}
+        alt="Interior del loft con ventanal y piso de madera"
+        width={600}
+        sizes="(max-width:880px) 92vw, 45vw"
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <Image
+        class="inset hard-petrol"
+        src={catStairs}
+        alt="Escalera de hierro del entrepiso con el gato bajando"
+        width={320}
+        sizes="(max-width:880px) 45vw, 22vw"
+        format="webp"
+      />
+    </div>
+  </div>
+</header>

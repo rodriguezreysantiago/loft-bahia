@@ -1,0 +1,30 @@
+---
+const items = [
+  { ic: 'UTN', title: 'Universidad Tecnológica', sub: 'A pasos — caminando' },
+  { ic: 'UNS', title: 'Universidad Nacional del Sur', sub: 'A 10 cuadras' },
+  { ic: '★', title: 'Centro de Bahía Blanca', sub: 'Comercios, transporte y vida estudiantil' },
+];
+---
+
+<section id="ubicacion" style="padding-top:18px;">
+  <div class="wrap">
+    <div class="loc">
+      <div>
+        <span class="eyebrow" style="color:#bfe3e7;">Ubicación</span>
+        <h2>Cerca de todo lo que importa</h2>
+        <p>
+          A pasos de la UTN y a sólo 10 cuadras de la UNS. Vas a clase caminando o
+          en bici, y tenés el centro de Bahía Blanca a mano.
+        </p>
+      </div>
+      <div class="loc-list">
+        {items.map((it) => (
+          <div class="loc-item">
+            <span class="ic">{it.ic}</span>
+            <div><b>{it.title}</b><span>{it.sub}</span></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

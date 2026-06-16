@@ -1,0 +1,96 @@
+/* ============================================================
+   LOFT BAHÍA — Sistema visual compartido
+   Paleta tomada de los colores reales del depto:
+   crema (paredes) · azul petróleo (puertas) · terracota (pisos hex)
+   madera · hierro negro
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+:root{
+  --cream:   #EFE6D3;   /* fondo crema cálido (paredes) */
+  --cream-2: #E7DBC2;   /* crema un punto más profundo */
+  --paper:   #FBF6EC;   /* tarjeta casi blanca */
+  --ink:     #211E18;   /* texto / casi negro cálido */
+  --ink-soft:#5A5347;   /* texto secundario */
+  --petrol:  #1F6E7E;   /* azul petróleo (puertas) — primario */
+  --petrol-d:#175662;   /* petróleo oscuro hover */
+  --terra:   #BC5D3C;   /* terracota (pisos hexagonales) — secundario */
+  --terra-d: #9E4B2E;
+  --wood:    #B5763C;   /* madera */
+  --line:    #211E18;
+  --wa:      #1FA855;   /* verde whatsapp sobrio */
+  --wa-d:    #178043;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:"DM Sans", system-ui, sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+h1,h2,h3,h4,.display{
+  font-family:"Bricolage Grotesque", system-ui, sans-serif;
+  font-weight:700;
+  line-height:0.98;
+  letter-spacing:-0.02em;
+  margin:0;
+  text-wrap:balance;
+}
+
+.eyebrow{
+  font-family:"DM Sans", sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.18em;
+  font-size:.72rem;
+}
+
+/* ---- chips / amenities ---- */
+.chip{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-weight:600; font-size:.95rem;
+  padding:.5em .9em;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  white-space:nowrap;
+}
+.chip .dot{ width:.5em; height:.5em; border-radius:50%; background:var(--petrol); flex:none; }
+.chip.terra .dot{ background:var(--terra); }
+
+/* ---- botones ---- */
+.btn{
+  display:inline-flex; align-items:center; gap:.6em;
+  font-family:"DM Sans",sans-serif; font-weight:700;
+  font-size:1.02rem; text-decoration:none;
+  padding:.85em 1.4em; border-radius:999px;
+  border:2px solid var(--ink);
+  cursor:pointer; transition:transform .12s ease, background .15s ease;
+}
+.btn:active{ transform:translateY(1px); }
+.btn-wa{ background:var(--wa); color:#fff; border-color:var(--ink); }
+.btn-wa:hover{ background:var(--wa-d); }
+.btn-call{ background:var(--paper); color:var(--ink); }
+.btn-call:hover{ background:#fff; }
+.btn-petrol{ background:var(--petrol); color:#fff; }
+.btn-petrol:hover{ background:var(--petrol-d); }
+
+/* sombra dura tipo sticker */
+.hard{ box-shadow:6px 6px 0 var(--ink); }
+.hard-petrol{ box-shadow:6px 6px 0 var(--petrol); }
+.hard-terra{ box-shadow:6px 6px 0 var(--terra); }
+
+/* damero decorativo reutilizable */
+.checker{
+  background-image:
+    linear-gradient(45deg, var(--c1,#cdb79a) 25%, transparent 25%, transparent 75%, var(--c1,#cdb79a) 75%),
+    linear-gradient(45deg, var(--c1,#cdb79a) 25%, transparent 25%, transparent 75%, var(--c1,#cdb79a) 75%);
+  background-size:var(--sz,28px) var(--sz,28px);
+  background-position:0 0, calc(var(--sz,28px)/2) calc(var(--sz,28px)/2);
+  background-color:var(--c2,#efe6d3);
+}
