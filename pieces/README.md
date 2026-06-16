@@ -40,3 +40,18 @@ El flyer genera el QR en el build a partir de `site.ts` (`site.url`), así que *
 cd site && node scripts/qr.mjs            # usa https://loft-bahia.netlify.app
 cd site && node scripts/qr.mjs <url> <outDir>   # otra URL / destino
 ```
+
+## Página de descargas
+
+Las piezas se pueden bajar desde el celular en **https://loft-bahia.netlify.app/descargas**
+(página de uso interno, no linkeada ni indexada). Sirve cada pieza + un ZIP con todo.
+
+Después de regenerar piezas, sincronizá la web y rearmá el ZIP:
+
+```
+& .\scripts\build-descargas.ps1   # copia pieces/ -> site/public/descargas + arma el ZIP
+```
+
+## Textos para publicar
+
+Captions, versión corta y hashtags listos para copiar en [`copy-redes.md`](copy-redes.md).

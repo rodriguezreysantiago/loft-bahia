@@ -1,12 +1,19 @@
 # Handoff: Loft Bahía — Sitio de alquiler + kit de redes
 
 ## Estado actual (implementado)
-- **Landing en producción**: sitio Astro en [`site/`](site/), desplegado a **Netlify** → https://loft-bahia.netlify.app (deploy automático en cada push a `main`; config en [`netlify.toml`](netlify.toml)).
-- **Optimizado**: imágenes WebP responsive (`astro:assets`), favicon propio, Open Graph + `sitemap.xml` + `robots.txt`.
-- **Kit de redes generado**: 16 piezas en [`pieces/`](pieces/) (5 historias, 6 carrusel, 4 posts, 1 flyer PDF). Las fuentes viven en `site/src/pages/pieces/*.astro`; cómo regenerarlas en [`pieces/README.md`](pieces/README.md).
-- **Dev local**: `cd site && npm install && npm run dev`.
 
-> Lo que sigue es el **handoff de diseño original** que dio origen al proyecto (referencia histórica).
+**Sitio en producción:** https://loft-bahia.netlify.app — landing Astro en [`site/`](site/), desplegada en **Netlify** (deploy automático en cada push a `main`; config en [`netlify.toml`](netlify.toml)). Se sirve en la raíz, sin backend.
+
+- **Landing** responsive, imágenes **WebP responsive** (`astro:assets`), **favicon propio**, Open Graph con **imagen de preview 1200×630**, `sitemap.xml` y `robots.txt`.
+- **Lightbox**: clic en cualquier foto la amplía (flechas, teclado ←/→/Esc, swipe en mobile) — `site/src/components/Lightbox.astro`.
+- **Kit de redes** (16 piezas en [`pieces/`](pieces/)): 5 historias 1080×1920, 6 carrusel y 4 posts 1080×1080, 1 flyer A4 (PDF) con **QR** al sitio. Fuentes en `site/src/pages/pieces/*.astro`; regeneración en [`pieces/README.md`](pieces/README.md).
+- **QR** del sitio (`pieces/qr/`): embebido en el flyer y disponible suelto (PNG + SVG).
+- **Página de descargas** (uso interno, no linkeada ni indexada): https://loft-bahia.netlify.app/descargas — baja cada pieza o un ZIP con todo desde el celular.
+- **Copy listo para publicar** en [`pieces/copy-redes.md`](pieces/copy-redes.md).
+
+**Dev local:** `cd site && npm install && npm run dev` (→ `localhost:4321`). Datos de contacto centralizados en `site/src/data/site.ts`.
+
+> Lo que sigue es el **handoff de diseño original** que dio origen al proyecto (referencia histórica; el objetivo de portarlo a un sitio real desplegable ya está cumplido).
 
 ## Resumen
 Paquete de diseño para publicar **un monoambiente tipo loft en alquiler** en Bahía Blanca,

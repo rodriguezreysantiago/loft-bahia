@@ -5,11 +5,12 @@
 - **Ubicación**: Bahía Blanca (centro)
 - **Estado**: Amoblado — listo para entrar
 - **Cerca de**: UTN (a pasos) · UNS (a 10 cuadras)
-- **Extras**: Lavadero común · Cocina equipada · Baño nuevo · Patio común con lugar para bicis
+- **Extras**: Lavadero común · Cocina equipada · Baño nuevo · Mucho espacio de guardado · Patio común con lugar para bicis
 - **Público**: Ideal estudiantes
 - **Precio**: (sin precio publicado por pedido del dueño)
 
 ## Contacto
+- **Sitio web**: https://loft-bahia.netlify.app
 - **Teléfono / WhatsApp**: 291 526-7900
 - **WhatsApp link**: https://wa.me/5492915267900
 - **Llamar link**: tel:+5492915267900
