@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,4 +16,6 @@ export default defineConfig({
     layout: 'constrained',
     responsiveStyles: false,
   },
+  // Sitemap solo de las páginas públicas reales (excluye los generadores /pieces/).
+  integrations: [sitemap({ filter: (page) => !page.includes('/pieces/') })],
 });

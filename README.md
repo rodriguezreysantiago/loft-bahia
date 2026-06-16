@@ -1,5 +1,13 @@
 # Handoff: Loft Bahía — Sitio de alquiler + kit de redes
 
+## Estado actual (implementado)
+- **Landing en producción**: sitio Astro en [`site/`](site/), desplegado a **GitHub Pages** → https://rodriguezreysantiago.github.io/loft-bahia/ (deploy automático en cada push a `main`, ver [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
+- **Optimizado**: imágenes WebP responsive (`astro:assets`), favicon propio, Open Graph + `sitemap.xml` + `robots.txt`.
+- **Kit de redes generado**: 16 piezas en [`pieces/`](pieces/) (5 historias, 6 carrusel, 4 posts, 1 flyer PDF). Las fuentes viven en `site/src/pages/pieces/*.astro`; cómo regenerarlas en [`pieces/README.md`](pieces/README.md).
+- **Dev local**: `cd site && npm install && npm run dev`.
+
+> Lo que sigue es el **handoff de diseño original** que dio origen al proyecto (referencia histórica).
+
 ## Resumen
 Paquete de diseño para publicar **un monoambiente tipo loft en alquiler** en Bahía Blanca,
 orientado a estudiantes (UTN / UNS). Incluye una **página web (landing)** y un **kit de piezas

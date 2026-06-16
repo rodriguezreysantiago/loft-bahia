@@ -12,6 +12,10 @@ const { title = site.title, description = site.description } = Astro.props;
 // BASE_URL puede venir con o sin barra final según la config; normalizamos
 // para concatenar assets de public/ sin pegarlos ni duplicar la barra.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// URLs absolutas para canonical y Open Graph (los crawlers necesitan URL completa).
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(`${base}/og.jpg`, Astro.site).href;
 ---
 
 <!doctype html>
@@ -30,6 +34,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content={site.name} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Loft Bahía — monoambiente tipo loft en alquiler" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Fuentes (link en head: más rápido que @import) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

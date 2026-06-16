@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rodriguezreysantiago.github.io/loft-bahia/sitemap-index.xml

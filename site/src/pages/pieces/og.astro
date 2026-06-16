@@ -1,0 +1,39 @@
+---
+// Generador de la imagen Open Graph (1200x630). Se captura a public/og.jpg
+// y se referencia en el <head> para las previsualizaciones de WhatsApp/redes.
+import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import { contact } from '../../data/site';
+import livingWindow from '../../assets/living-window.jpg';
+---
+
+<Base title="Loft Bahía · OG">
+  <div class="ogcard">
+    <Image class="full" src={livingWindow} alt="" width={1200} format="webp" loading="eager" />
+    <div class="shade"></div>
+    <div class="pad">
+      <div class="brand"><span class="mk">⌂</span> Loft Bahía</div>
+      <div class="bottom">
+        <span class="pill">En alquiler · Bahía Blanca</span>
+        <h1 class="h">Monoambiente tipo loft<br>con entrepiso</h1>
+        <p class="sub">A pasos de la UTN · 💬 {contact.phoneDisplay}</p>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .ogcard {
+    width: 1200px; height: 630px; position: relative; overflow: hidden;
+    background-color: var(--cream); font-family: "DM Sans", sans-serif;
+  }
+  .full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(20,17,13,.82) 0%, rgba(20,17,13,.55) 42%, rgba(20,17,13,.1) 100%); }
+  .pad { position: absolute; inset: 0; padding: 60px 64px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 16px; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 40px; color: #fff; }
+  .mk { width: 60px; height: 60px; border: 3px solid #fff; border-radius: 15px; background: var(--petrol); display: grid; place-items: center; color: #fff; font-size: 32px; transform: rotate(-6deg); }
+  .bottom { margin-top: auto; }
+  .pill { display: inline-flex; align-items: center; font-weight: 700; font-size: 24px; letter-spacing: .1em; text-transform: uppercase; padding: 12px 24px; border-radius: 999px; background: var(--terra); color: #fff; }
+  .h { font-family: "Bricolage Grotesque"; font-weight: 800; letter-spacing: -.02em; line-height: .98; color: #fff; font-size: 78px; margin: 22px 0 0; }
+  .sub { color: #f2e9d8; font-size: 34px; font-weight: 600; margin: 18px 0 0; }
+</style>

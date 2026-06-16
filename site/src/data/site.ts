@@ -8,8 +8,9 @@ export const site = {
   title: 'Loft Bahía · Monoambiente en alquiler — Bahía Blanca',
   description:
     'Monoambiente tipo loft con entrepiso, amoblado y a pasos de la UTN. Ideal para estudiantes en Bahía Blanca (a 10 cuadras de la UNS).',
-  // TODO: reemplazar por el dominio real al desplegar (canonical / OG).
-  url: 'https://loft-bahia.example',
+  // URL pública actual (GitHub Pages). Si hay dominio propio, cambiar acá
+  // y en astro.config (site/base).
+  url: 'https://rodriguezreysantiago.github.io/loft-bahia',
 } as const;
 
 export const contact = {
