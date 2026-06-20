@@ -26,5 +26,25 @@ const items = [
         ))}
       </div>
     </div>
+
+    <div class="loc-map">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-62.26937%2C-38.71388%2C-62.25937%2C-38.70688&layer=mapnik&marker=-38.71038%2C-62.26437"
+        loading="lazy"
+        title="La zona — a pasos de la UTN, Bahía Blanca"
+      ></iframe>
+      <div class="loc-map-foot">
+        <span>📍 La zona — a pasos de la UTN · ~10 cuadras de la UNS</span>
+        <a class="btn btn-petrol" href="https://www.google.com/maps/search/?api=1&query=-38.71038%2C-62.26437" target="_blank" rel="noopener">Ver en Google Maps</a>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .loc-map { margin-top: 20px; }
+  .loc-map iframe { width: 100%; height: 360px; border: 2px solid var(--ink); border-radius: 18px; display: block; }
+  .loc-map-foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+  .loc-map-foot span { font-weight: 600; color: var(--ink-soft); font-size: 0.95rem; }
+  @media (max-width: 620px) { .loc-map iframe { height: 280px; } }
+</style>

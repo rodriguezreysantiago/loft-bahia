@@ -28,7 +28,7 @@ const grupos = [
     <header class="dl-head">
       <h1>Piezas para redes</h1>
       <p class="lead">Tocá cualquier pieza para descargarla, o bajá todo junto en un ZIP. Después subís las imágenes a Instagram / WhatsApp.</p>
-      <a class="btn btn-petrol hard" href={`${B}/loft-bahia-redes.zip`} download>⬇ Descargar todo (ZIP · 15 MB)</a>
+      <a class="btn btn-petrol hard" href={`${B}/loft-bahia-redes.zip`} download>⬇ Descargar todo (ZIP · ~20 MB)</a>
     </header>
 
     {grupos.map((g) => (
@@ -47,6 +47,19 @@ const grupos = [
         </div>
       </section>
     ))}
+
+    <section class="dl-sec">
+      <div class="dl-sec-head">
+        <h2>Reel <span class="dim">1080×1920 · video</span></h2>
+        <p>Subilo como Reel de Instagram. Tip: agregale un audio de tendencia desde la app (rinde más).</p>
+      </div>
+      <div class="reel-row">
+        <video class="reel-vid" controls preload="metadata" poster={`${B}/reel/poster.jpg`} playsinline>
+          <source src={`${B}/reel/reel.mp4`} type="video/mp4" />
+        </video>
+        <a class="btn btn-petrol" href={`${B}/reel/reel.mp4`} download>⬇ Descargar reel (MP4)</a>
+      </div>
+    </section>
 
     <section class="dl-sec">
       <div class="dl-sec-head">
@@ -106,6 +119,8 @@ const grupos = [
   .qr-row .dl-card.qr { width: 150px; flex: none; background: var(--paper); }
   .qr-btns { display: flex; flex-direction: column; gap: 10px; }
   .dl-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .reel-row { display: flex; align-items: flex-start; gap: 22px; flex-wrap: wrap; }
+  .reel-vid { width: 240px; aspect-ratio: 9 / 16; border: 2px solid var(--ink); border-radius: 14px; background: var(--ink); display: block; }
   .dl-sec > .btn { align-self: flex-start; }
 
   .dl-foot { margin-top: 30px; text-align: center; color: var(--ink-soft); font-size: 0.85rem; }

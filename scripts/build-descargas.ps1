@@ -3,7 +3,7 @@
 $root = Split-Path $PSScriptRoot -Parent
 $src  = Join-Path $root 'pieces'
 $dst  = Join-Path $root 'site\public\descargas'
-$folders = 'historias', 'carrusel', 'posts', 'flyer', 'qr'
+$folders = 'historias', 'carrusel', 'posts', 'flyer', 'qr', 'reel'
 
 New-Item -ItemType Directory -Force -Path $dst | Out-Null
 foreach ($f in $folders) {
