@@ -11,6 +11,10 @@ export const site = {
   // URL pública (Netlify). Si el subdominio difiere, cambiar acá y en
   // astro.config (site) y public/robots.txt.
   url: 'https://loft-bahia.netlify.app',
+  // Analytics gratis y sin cookies (GoatCounter). Crear la cuenta en
+  // goatcounter.com reclamando este código → panel en <codigo>.goatcounter.com
+  // Dejar '' para desactivar.
+  goatcounter: 'loftbahia',
 } as const;
 
 export const contact = {

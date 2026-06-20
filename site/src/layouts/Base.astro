@@ -16,6 +16,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 // URLs absolutas para canonical y Open Graph (los crawlers necesitan URL completa).
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(`${base}/og.jpg`, Astro.site).href;
+
+// Analytics (GoatCounter): URL del beacon, o null si está desactivado.
+const gcUrl = site.goatcounter ? `https://${site.goatcounter}.goatcounter.com/count` : null;
 ---
 
 <!doctype html>
@@ -54,6 +57,9 @@ const ogImage = new URL(`${base}/og.jpg`, Astro.site).href;
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
     />
+
+    <!-- Analytics gratis y sin cookies (GoatCounter) -->
+    {gcUrl && <script is:inline async src="https://gc.zgo.at/count.js" data-goatcounter={gcUrl}></script>}
   </head>
   <body>
     <slot />
