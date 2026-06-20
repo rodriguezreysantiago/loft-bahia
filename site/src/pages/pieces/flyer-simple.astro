@@ -1,0 +1,67 @@
+---
+// Flyer minimalista A4: solo QR + "Depto en alquiler · Zona universitaria".
+// Se exporta a PDF con Page.printToPDF.
+import Base from '../../layouts/Base.astro';
+import QRCode from 'qrcode';
+import { contact, site } from '../../data/site';
+
+const qrSvg = await QRCode.toString(site.url, {
+  type: 'svg',
+  margin: 2,
+  color: { dark: '#211E18', light: '#FBF6EC' },
+});
+---
+
+<Base title="Loft Bahía · Flyer simple">
+  <div class="sheet">
+    <div class="top">
+      <div class="brand"><span class="mk">⌂</span> Loft Bahía</div>
+      <span class="tag">En alquiler</span>
+    </div>
+
+    <div class="center">
+      <h1 class="h">Depto en<br>alquiler</h1>
+      <p class="zona">📍 Zona universitaria · a pasos de la UTN</p>
+
+      <div class="qr" set:html={qrSvg}></div>
+      <p class="scan">📲 Escaneá y mirá el depto</p>
+    </div>
+
+    <div class="foot">
+      <span class="wa">💬 {contact.phoneDisplay}</span>
+      <span class="url">loft-bahia.netlify.app</span>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .sheet {
+    width: 794px; height: 1123px; margin: 0 auto; background-color: var(--cream);
+    position: relative; overflow: hidden; font-family: "DM Sans", sans-serif;
+    display: flex; flex-direction: column; padding: 56px 56px 48px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  .top { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 28px; color: var(--ink); }
+  .mk { width: 46px; height: 46px; border: 2.5px solid var(--ink); border-radius: 12px; background: var(--petrol); display: grid; place-items: center; color: #fff; font-size: 24px; transform: rotate(-6deg); }
+  .tag { background: var(--terra); color: #fff; font-weight: 700; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; padding: 9px 18px; border-radius: 999px; }
+
+  .center { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0; }
+  .h { font-family: "Bricolage Grotesque"; font-weight: 800; letter-spacing: -0.02em; line-height: 0.95; color: var(--ink); font-size: 104px; margin: 0; }
+  .h::after { content: ""; display: block; width: 120px; height: 8px; background: var(--petrol); opacity: 0.4; border-radius: 4px; margin: 22px auto 0; }
+  .zona { font-size: 30px; font-weight: 600; color: var(--ink-soft); margin: 26px 0 0; }
+
+  .qr { width: 360px; height: 360px; margin: 48px 0 0; background: var(--paper); border: 2px solid var(--ink); border-radius: 18px; padding: 16px; box-shadow: 8px 8px 0 var(--petrol); }
+  .qr :global(svg) { width: 100%; height: 100%; display: block; }
+  .scan { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 32px; color: var(--ink); margin: 28px 0 0; }
+
+  .foot { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .wa { display: inline-flex; align-items: center; gap: 12px; background: var(--wa); color: #fff; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 34px; padding: 16px 34px; border-radius: 999px; border: 2px solid var(--ink); }
+  .url { font-weight: 600; font-size: 20px; color: var(--ink-soft); letter-spacing: 0.02em; }
+
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    .sheet { margin: 0; width: 100%; height: 100vh; }
+  }
+</style>

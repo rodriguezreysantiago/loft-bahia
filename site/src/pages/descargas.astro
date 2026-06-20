@@ -51,9 +51,12 @@ const grupos = [
     <section class="dl-sec">
       <div class="dl-sec-head">
         <h2>Flyer <span class="dim">A4 · PDF</span></h2>
-        <p>Para imprimir y pegar (carteleras de UTN/UNS, kioscos). Trae el QR al sitio.</p>
+        <p>Para imprimir y pegar (carteleras de UTN/UNS, kioscos). Los dos traen el QR al sitio.</p>
       </div>
-      <a class="btn btn-call" href={`${B}/flyer/flyer-a4.pdf`} download>📄 Descargar flyer A4 (PDF)</a>
+      <div class="dl-btns">
+        <a class="btn btn-call" href={`${B}/flyer/flyer-a4.pdf`} download>📄 Flyer completo (PDF)</a>
+        <a class="btn btn-petrol" href={`${B}/flyer/flyer-simple-a4.pdf`} download>📄 Flyer simple · solo QR (PDF)</a>
+      </div>
     </section>
 
     <section class="dl-sec">
@@ -102,7 +105,8 @@ const grupos = [
   .qr-row { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
   .qr-row .dl-card.qr { width: 150px; flex: none; background: var(--paper); }
   .qr-btns { display: flex; flex-direction: column; gap: 10px; }
-  .dl-sec .btn { align-self: flex-start; }
+  .dl-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .dl-sec > .btn { align-self: flex-start; }
 
   .dl-foot { margin-top: 30px; text-align: center; color: var(--ink-soft); font-size: 0.85rem; }
 </style>
